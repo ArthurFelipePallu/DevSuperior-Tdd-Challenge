@@ -4,10 +4,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +24,14 @@ public class Event implements Serializable{
 	private Long id;
 	private String name;
 	private LocalDate date;
+	@Column(columnDefinition="TEXT")
 	private String url;
+	
+	/*
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="cityId",referencedColumnName="id")
+	private City city;
+	*/
 	
 	public Event() {}
 
@@ -61,12 +72,24 @@ public class Event implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
+	
+
+
+/*
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
+*/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -14,11 +14,13 @@ public class CityDTO implements Serializable{
 	public CityDTO() {}
 
 	public CityDTO(City c) {
+		this.id = c.getId();
 		this.name = c.getName();
 	}
 
 	
-	public CityDTO(String name) {
+	public CityDTO(Long id,String name) {
+		this.id = id;
 		this.name = name;
 	}
 

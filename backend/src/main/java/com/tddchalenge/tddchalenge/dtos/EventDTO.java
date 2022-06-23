@@ -12,17 +12,18 @@ public class EventDTO implements Serializable{
 	private String name;
 	private LocalDate date;
 	private String url;
-	
+
 	public EventDTO() {}
 	
 	public EventDTO(Event e) {
+		this.id = e.getId();
 		this.name = e.getName();
 		this.date = e.getDate();
 		this.url = e.getUrl();
-		
 	}
 
-	public EventDTO(String name, LocalDate date, String url) {
+	public EventDTO(Long id,String name, LocalDate date, String url) {
+		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.url = url;
@@ -59,6 +60,8 @@ public class EventDTO implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+
 
 	
 	
